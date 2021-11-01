@@ -34,8 +34,7 @@ jobs:
           -D CMAKE_INSTALL_PREFIX=~/opencv-release \
           -DBUILD_SHARED_LIBS=OFF \
           BUILD_EXAMPLES=OFF \
-          BUILD_TESTS=OFF \
-          BUILD_PERF_TESTS=OFF .. 
+          BUILD_TESTS=OFF .. 
           
       - name: Build 
         run: |
