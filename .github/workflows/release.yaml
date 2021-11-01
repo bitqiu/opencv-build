@@ -25,17 +25,17 @@ jobs:
         run: |
           git clone -b 4.5.4 --depth 1 https://github.com/opencv/opencv.git ~/opencv-src
 
-      - name: Configuration cmake
-        run: |
-          mkdir ~/build 
-          cd ~/build 
-          mkdir ~/opencv-release
-          cmake -D CMAKE_BUILD_TYPE=RELEASE \
-          -D CMAKE_INSTALL_PREFIX=~/opencv-release \
-          -D BUILD_SHARED_LIBS=OFF \
-          -D BUILD_EXAMPLES=OFF \
-          -D BUILD_TESTS=OFF \
-          -D BUILD_PERF_TESTS=OFF ~/opencv-src
+      # - name: Configuration cmake
+      #   run: |
+      #     mkdir ~/build 
+      #     cd ~/build 
+      #     mkdir ~/opencv-release
+      #     cmake -D CMAKE_BUILD_TYPE=RELEASE \
+      #     -D CMAKE_INSTALL_PREFIX=~/opencv-release \
+      #     -D BUILD_SHARED_LIBS=OFF \
+      #     -D BUILD_EXAMPLES=OFF \
+      #     -D BUILD_TESTS=OFF \
+      #     -D BUILD_PERF_TESTS=OFF ~/opencv-src
           
       - name: Build 
         run: |
@@ -59,7 +59,7 @@ jobs:
           ls -al
           ls -al build
           pwd
-          
+
       - name: Upload
         uses: actions/upload-release-asset@v1
         env:
