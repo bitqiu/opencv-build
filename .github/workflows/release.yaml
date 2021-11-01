@@ -41,7 +41,7 @@ jobs:
         run: |
           cd ~/build
           make -j$(nproc --all)
-          zip --junk-paths opencv-release.zip ~/opencv-release
+          zip -r ~/build/opencv-release.zip ~/opencv-release
 
       - name: Create release
         id: create_release
