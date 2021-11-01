@@ -31,6 +31,7 @@ jobs:
 
       - name: Configuration cmake
         run: |
+          pwd
           mkdir opencv-release
           mkdir build
           cd build 
@@ -61,7 +62,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v15
+          tag_name: v16
           release_name: Release
           draft: false
           prerelease: false
