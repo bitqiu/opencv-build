@@ -27,27 +27,18 @@ jobs:
 
       - name: Fetch opencv
         run: |
-          git clone -b 4.5.4 --depth 1 https://github.com/opencv/opencv.git ~/opencv-src
+          git clone -b 4.5.4 --depth 1 https://github.com/opencv/opencv.git
 
-      # - name: Configuration cmake
-      #   run: |
-      #     mkdir ~/build 
-      #     cd ~/build 
-      #     mkdir ~/opencv-release
-      #     cmake -D CMAKE_BUILD_TYPE=RELEASE \
-      #     -D CMAKE_INSTALL_PREFIX=~/opencv-release \
-      #     -D BUILD_SHARED_LIBS=OFF \
-      #     -D BUILD_EXAMPLES=OFF \
-      #     -D BUILD_TESTS=OFF \
-      #     -D BUILD_PERF_TESTS=OFF ~/opencv-src
+      - name: Configuration cmake
+        run: |
+          mkdir opencv-release
+          mkdir build
+          cd build 
           
       - name: Build 
         run: |
-          # mkdir ~/build
-          # cd ~/build
           pwd
-          ls -al
-          zip -q -r ~/opencv-release.zip ~/opencv-src
+          zip -q -r opencv-release.zip opencv-release
 
       - name: Upload
         uses: actions/upload-artifact@v2
@@ -70,7 +61,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v13
+          tag_name: v14
           release_name: Release
           draft: false
           prerelease: false
