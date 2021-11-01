@@ -60,6 +60,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ~/build/opencv-release.zip
+          asset_path: ~/opencv-release
           asset_name: opencv-release.zip
           asset_content_type: application/zip
