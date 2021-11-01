@@ -21,13 +21,14 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
       - name: Fetch opencv
         run: |
           git clone -b 4.5.4 --depth 1 https://github.com/opencv/opencv.git ~/opencv-src
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
       # - name: Configuration cmake
       #   run: |
       #     mkdir ~/build 
@@ -69,7 +70,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v12
+          tag_name: v13
           release_name: Release
           draft: false
           prerelease: false
