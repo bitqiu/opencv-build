@@ -39,6 +39,7 @@ jobs:
           
       - name: Build 
         run: |
+          mkdir ~/build
           cd ~/build
           zip -q -r ~/opencv-release.zip ~/opencv-src/*
           ls -al ~/opencv-release.zip
