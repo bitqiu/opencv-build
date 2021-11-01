@@ -41,6 +41,7 @@ jobs:
         run: |
           cd ~/build
           zip -r ~/build/opencv-release.zip ~/opencv-src
+          ls -al ~/
 
       - name: Create release
         id: create_release
