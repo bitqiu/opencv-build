@@ -23,7 +23,7 @@ jobs:
 
       - name: Fetch opencv
         run: |
-          git clone --depth 1 https://github.com/opencv/opencv.git
+          git clone -b 4.5.4 --depth 1 https://github.com/opencv/opencv.git
 
       - name: Configuration cmake
         run: |
@@ -32,8 +32,10 @@ jobs:
           mkdir ~/opencv-release
           cmake -D CMAKE_BUILD_TYPE=RELEASE \
           -D CMAKE_INSTALL_PREFIX=~/opencv-release \
-          -DBUILD_SHARED_LIBS=OFF \
-          BUILD_EXAMPLES=OFF .. 
+          -D BUILD_SHARED_LIBS=OFF \
+          -D BUILD_EXAMPLES=OFF \
+          -D BUILD_TESTS=OFF \
+          -D BUILD_PERF_TESTS=OFF ..
           
       - name: Build 
         run: |
