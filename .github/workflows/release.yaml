@@ -25,15 +25,22 @@ jobs:
       - name: Fetch opencv
         run: |
           git clone --depth 1 https://github.com/opencv/opencv.git
-          pwd
-          echo $JAVA_HOME
-          echo $ANT_HOME
+          cd opencv 
+          git checkout 4.5.4
 
-      # - name: config
-      #   run: |
-      #     cmake -D CMAKE_BUILD_TYPE=RELEASE \
-      #     -D CMAKE_INSTALL_PREFIX=~/opencv \
-      #     -DBUILD_SHARED_LIBS=OFF \
-      #     BUILD_EXAMPLES=OFF \
-      #     BUILD_TESTS=OFF \
-      #     BUILD_PERF_TESTS=OFF .. 
+      - name: Configuration cmake
+        run: |
+          mkdir build 
+          cd build 
+          mkdir ~/opencv-release
+          cmake -D CMAKE_BUILD_TYPE=RELEASE \
+          -D CMAKE_INSTALL_PREFIX=~/opencv-release \
+          -DBUILD_SHARED_LIBS=OFF \
+          BUILD_EXAMPLES=OFF \
+          BUILD_TESTS=OFF \
+          BUILD_PERF_TESTS=OFF .. 
+          
+      - name: Build 
+        run: |
+          cd build
+          make -j$(nproc --all)
