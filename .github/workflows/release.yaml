@@ -48,12 +48,6 @@ jobs:
           -D BUILD_TIFF=ON \
           -D BUILD_OPENJPEG=ON \
           -D BUILD_OPENEXR=ON \
-          -D WITH_FFMPEG=OFF \
-          -D WITH_V4L=OFF \
-          -D WITH_1394=OFF \
-          -D VIDEOIO_ENABLE_PLUGINS=OFF \
-          -D WITH_GTK=OFF \
-          -D HIGHGUI_ENABLE_PLUGINS=OFF \
           -D BUILD_PERF_TESTS=OFF ../opencv
           
       - name: Build
