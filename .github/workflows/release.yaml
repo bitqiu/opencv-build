@@ -36,8 +36,6 @@ jobs:
       - name: Configuration cmake
         working-directory: build
         run: |
-          pwd
-          ls -al
           cmake -D CMAKE_BUILD_TYPE=RELEASE \
           -D CMAKE_INSTALL_PREFIX=../opencv-release \
           -D BUILD_SHARED_LIBS=OFF \
@@ -48,15 +46,12 @@ jobs:
       - name: Build
         working-directory: build
         run: |
-          pwd
           make -j$(nproc --all)
           make install
 
       - name: Zip
         run: |
-          pwd
           zip -q -r opencv-release.zip opencv-release
-          ls -al
 
       - name: Upload
         uses: actions/upload-artifact@v2
@@ -73,17 +68,13 @@ jobs:
         with:
           path: artifacts
 
-      - name: Display structure of downloaded files
-        working-directory: artifacts
-        run: ls -R
-
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v5
+          tag_name: v6
           release_name: Release
           draft: false
           prerelease: false
