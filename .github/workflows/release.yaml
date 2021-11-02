@@ -25,7 +25,8 @@ jobs:
       - name: List
         run: |
           ldconfig -p | grep jpeg
-          sudo rm /lib/x86_64-linux-gnu/libjpeg.so.8
+          sudo cp -f /lib/x86_64-linux-gnu/libjpeg.so.62 /lib/x86_64-linux-gnu/libjpeg.so.8
+          sudo cp -f /lib/x86_64-linux-gnu/libjpeg.so.62 /lib/x86_64-linux-gnu/libjpeg.so
 
   build:
     runs-on: ubuntu-latest
