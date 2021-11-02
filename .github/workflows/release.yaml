@@ -37,7 +37,6 @@ jobs:
       - name: Fetch opencv
         run: |
           git clone -b 4.5.4 --depth 1 https://github.com/opencv/opencv.git
-          git clone --depth 1 https://github.com/opencv/opencv_contrib.git
 
       - name: Configuration cmake
         working-directory: build
@@ -54,7 +53,6 @@ jobs:
           -D VIDEOIO_ENABLE_PLUGINS=OFF \
           -D WITH_GTK=OFF \
           -D HIGHGUI_ENABLE_PLUGINS=OFF \
-          -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules \
           -D BUILD_PERF_TESTS=OFF ../opencv
           
       - name: Build
@@ -88,7 +86,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v11
+          tag_name: v12
           release_name: Release
           draft: false
           prerelease: false
