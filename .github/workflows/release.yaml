@@ -21,13 +21,6 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
 
-      - name: List
-        run: |
-          ldconfig -p | grep jpeg
-          sudo cp -rf /lib/x86_64-linux-gnu/libjpeg.so.62.0.0 /lib/x86_64-linux-gnu/libjpeg.so.8.2.2
-          sudo cp -rf /lib/x86_64-linux-gnu/libjpeg.so.62 /lib/x86_64-linux-gnu/libjpeg.so
-          sudo ls -al /lib/x86_64-linux-gnu/libjpeg*
-
   build:
     needs: [setup]
     runs-on: ubuntu-latest
@@ -49,9 +42,12 @@ jobs:
           -D BUILD_SHARED_LIBS=OFF \
           -D BUILD_EXAMPLES=OFF \
           -D BUILD_TESTS=OFF \
-          -D WITH_TIFF=OFF \
-          -D WITH_JASPER=OFF \
-          -D WITH_OPENEXR=OFF \
+          -D BUILD_LIBJPEG=ON \
+          -D BUILD_LIBPNG=ON \
+          -D BUILD_LIBWBP=ON \
+          -D BUILD_LIBTIFF=ON \
+          -D BUILD_OPENJPEG=ON \
+          -D BUILD_OPENEXR=ON \
           -D WITH_FFMPEG=OFF \
           -D WITH_V4L=OFF \
           -D WITH_1394=OFF \
