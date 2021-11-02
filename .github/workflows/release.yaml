@@ -45,7 +45,7 @@ jobs:
         run: |
           cmake -D CMAKE_BUILD_TYPE=RELEASE \
           -D CMAKE_INSTALL_PREFIX=../opencv-release \
-          -D BUILD_SHARED_LIBS=OFF \
+          -D BUILD_SHARED_LIBS=ON \
           -D BUILD_EXAMPLES=OFF \
           -D BUILD_TESTS=OFF \
           -D WITH_OPENJPEG=OFF \
