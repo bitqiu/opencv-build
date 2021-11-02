@@ -41,10 +41,10 @@ jobs:
           -D BUILD_SHARED_LIBS=OFF \
           -D BUILD_EXAMPLES=OFF \
           -D BUILD_TESTS=OFF \
-          -D BUILD_LIBJPEG=ON \
-          -D BUILD_LIBPNG=ON \
-          -D BUILD_LIBWBP=ON \
-          -D BUILD_LIBTIFF=ON \
+          -D BUILD_PNG=ON \
+          -D BUILD_JPEG=ON \
+          -D BUILD_WEBP=ON \
+          -D BUILD_TIFF=ON \
           -D BUILD_OPENJPEG=ON \
           -D BUILD_OPENEXR=ON \
           -D WITH_FFMPEG=OFF \
