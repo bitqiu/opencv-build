@@ -7,7 +7,7 @@ on:
 
 jobs:
   setup:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Install dependency packages
@@ -27,7 +27,7 @@ jobs:
           distribution: 'adopt'
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: Create directory
         run: |
@@ -75,7 +75,7 @@ jobs:
 
   # release:
   #   needs: [setup, build]
-  #   runs-on: ubuntu-latest
+  #   runs-on: ubuntu-18.04
   #   steps:
   #     - name: Download
   #       uses: actions/download-artifact@v2
