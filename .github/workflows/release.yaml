@@ -50,6 +50,7 @@ jobs:
         run: |
           pwd
           make -j$(nproc --all)
+          make install
 
       - name: Zip
         run: |
@@ -82,7 +83,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v4
+          tag_name: v5
           release_name: Release
           draft: false
           prerelease: false
