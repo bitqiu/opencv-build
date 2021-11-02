@@ -49,7 +49,6 @@ jobs:
           -D BUILD_SHARED_LIBS=OFF \
           -D BUILD_EXAMPLES=OFF \
           -D BUILD_TESTS=OFF \
-          -D WITH_OPENJPEG=OFF \
           -D WITH_TIFF=OFF \
           -D WITH_JASPER=OFF \
           -D WITH_OPENEXR=OFF \
