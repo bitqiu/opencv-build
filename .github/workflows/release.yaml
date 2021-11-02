@@ -28,6 +28,7 @@ jobs:
           sudo cp -f /lib/x86_64-linux-gnu/libjpeg.so.62 /lib/x86_64-linux-gnu/libjpeg.so
 
   build:
+    needs: [setup]
     runs-on: ubuntu-latest
     steps:
       - name: Create directory
