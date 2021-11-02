@@ -69,13 +69,17 @@ jobs:
         with:
           path: artifacts
 
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: artifacts
+
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v2
+          tag_name: v3
           release_name: Release
           draft: false
           prerelease: false
