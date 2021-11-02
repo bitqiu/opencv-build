@@ -13,7 +13,7 @@ jobs:
       - name: Install dependency packages
         run: |
           sudo apt update 
-          sudo apt remove libjpeg-turbo8-dev
+          sudo apt remove libjpeg-dev
           sudo apt install -y wget zip unzip build-essential cmake git pkg-config libjpeg62-dev libpng-dev libwebp-dev 
      
       - name: Set up JDK 8
@@ -25,7 +25,6 @@ jobs:
       - name: List
         run: |
           ldconfig -p | grep jpeg
-          sudo cp -f /lib/x86_64-linux-gnu/libjpeg.so.62 /lib/x86_64-linux-gnu/libjpeg.so.8
           sudo cp -f /lib/x86_64-linux-gnu/libjpeg.so.62 /lib/x86_64-linux-gnu/libjpeg.so
 
   build:
