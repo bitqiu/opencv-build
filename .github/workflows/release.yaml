@@ -21,14 +21,13 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
 
+  build:
+    runs-on: ubuntu-latest
+    steps:
       - name: Create directory
         run: |
           mkdir build
           mkdir opencv-release
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
 
       - name: Fetch opencv
         run: |
