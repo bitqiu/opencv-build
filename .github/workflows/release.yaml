@@ -13,12 +13,16 @@ jobs:
       - name: Install dependency packages
         run: |
           sudo apt update 
-          sudo apt install -y wget zip unzip build-essential cmake git pkg-config
+          sudo apt install -y wget zip unzip build-essential cmake git pkg-config ant
       - name: Set up JDK 8
         uses: actions/setup-java@v2
         with:
           java-version: '8'
           distribution: 'adopt'
+          
+      - name: Get ENV ALL
+        run: |
+          sudo export
 
   build:
     needs: [setup]
@@ -31,7 +35,7 @@ jobs:
 
       - name: Fetch opencv
         run: |
-          git clone -b 4.5.1 --depth 1 https://github.com/opencv/opencv.git
+          git clone -b 4.5.4 --depth 1 https://github.com/opencv/opencv.git
 
       - name: Configuration cmake
         working-directory: build
@@ -48,7 +52,7 @@ jobs:
           -D BUILD_TIFF=ON \
           -D BUILD_OPENJPEG=ON \
           -D BUILD_OPENEXR=ON \
-          -D BUILD_PERF_TESTS=OFF ../opencv
+          -D BUILD_PERF_TESTS=OFF ../opencv-src
           
       - name: Build
         working-directory: build
